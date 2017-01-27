@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="product" content="Metro UI CSS Framework">
+<meta name="description" content="Simple responsive css framework">
+<meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+<!-- Load CSS Libraries -->
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+
+<!-- Load JavaScript Libraries -->
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+<!-- Metro UI CSS JavaScript plugins -->
+<script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+<!-- Local JavaScript -->
+<script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/start-screen.js');?>"></script>
+<title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+</head>
+<body class="metro " style="overflow-y: hidden;">
+<header class="bg-blue" data-load="/template/header"></header>
+<div class="tile-area tile-area-dark">
+  <div class="tile-group seven"> <a class="tile double bg-orange" data-click="transform" href="/workspace/goship">
+    <div class="tile-content icon"> <i class="icon-play"></i> </div>
+    <div class="brand"> <span class="label fg-white">发起漂流瓶</span> </div>
+    </a> <!-- end tile --> 
+    <a class="tile quadro bg-darkBlue" data-click="transform" href="workspace/myaddress">
+    <div class="tile-content" >
+      <div class="padding10">
+        <h3 class="fg-white no-margin"><?php echo $this->CustomerName;?></h3>
+        <p class="tertiary-text fg-white"><?php echo $this->CustomerAvatarMobile;?></p>
+        <p class="tertiary-text fg-white"><?php echo $this->CustomerAvatarAddress["StationProvince"]."省 ".$this->CustomerAvatarAddress["StationCity"]." ".$this->CustomerAvatarAddress["StationDistrict"]." ".$this->CustomerAvatarAddress["StationStreets"]." ".$this->CustomerAvatarAddress["StationApartment"]."_".$this->CustomerSelfMobile;?></p>
+      </div>
+    </div>
+    <div class="brand"> <span class="label text-right fg-white">仓库名片</span> </div>
+    </a> <a class="tile bg-dark" data-click="transform" href="workspace/capcredit">
+    <div class="tile-content">
+      <div class="text-right padding10 ntp">
+        <h1 class="fg-white no-margin">36</h1>
+        <p class="fg-white">Pips</p>
+      </div>
+    </div>
+    <div class="brand"> <span class="label fg-white">瓶盖</span> </div>
+    </a> <a class="tile double double-vertical ol-transparent" href="/workspace/trackuncheckedtransitbill">
+    <div class="tile-content">
+      <div class="carousel" data-role="carousel" data-period="4000" data-height="100%" data-width="100%" data-controls="false">
+        <div class="slide bg-violet">
+          <div class="padding10">
+            <h2 class="fg-white ntm">
+            TB20140712001X
+            </h1>
+            <h5 class="fg-white no-margin">in 深圳</h5>
+            <p class="tertiary-text fg-white no-margin">Today</p>
+            <p class="tertiary-text fg-white">05:15 香港海关清关</p>
+            <p class="tertiary-text fg-white no-margin">Tomorrow</p>
+            <p class="tertiary-text fg-white">19:48 深圳专列发车</p>
+            <p class="tertiary-text fg-white no-margin">20140710</p>
+            <p class="tertiary-text fg-white">19:48 深圳打包</p>
+          </div>
+        </div>
+        <div class="slide bg-violet">
+          <div class="padding10">
+            <h3 class="fg-white ntm"> TB20140712001X </h3>
+            <h5 class="fg-white no-margin">in 深圳</h5>
+            <p class="tertiary-text fg-white no-margin">Today</p>
+            <p class="tertiary-text fg-white">05:15 香港海关清关</p>
+            <p class="tertiary-text fg-white no-margin">Tomorrow</p>
+            <p class="tertiary-text fg-white">19:48 深圳专列发车</p>
+            <p class="tertiary-text fg-white no-margin">20140710</p>
+            <p class="tertiary-text fg-white">19:48 深圳打包</p>
+          </div>
+        </div>
+        <div class="slide bg-violet">
+          <div class="padding10">
+            <h2 class="fg-white ntm">
+            TB20140712001X
+            </h1>
+            <h5 class="fg-white no-margin">in 深圳</h5>
+            <p class="tertiary-text fg-white no-margin">Today</p>
+            <p class="tertiary-text fg-white">05:15 香港海关清关</p>
+            <p class="tertiary-text fg-white no-margin">Tomorrow</p>
+            <p class="tertiary-text fg-white">19:48 深圳专列发车</p>
+            <p class="tertiary-text fg-white no-margin">20140710</p>
+            <p class="tertiary-text fg-white">19:48 深圳打包</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="brand bg-dark"> <span class="label text-right fg-white">漂流瓶在途</span> </div>
+    </a> <a class="tile double double-vertical ol-transparent" href="/workspace/trackuncheckedpackage">
+    <div class="tile-content">
+      <div class="carousel" data-role="carousel" data-period="4000" data-height="100%" data-width="100%" data-controls="false">
+        <?php foreach ($this->PackageTrackInfoArray as $Value): ?>
+        <div class="slide bg-darkGreen">
+          <div class="padding10">
+            <h3 class="fg-white ntm"><?php echo $Value["PackageExpressCompanyName"]; ?><small><?php echo $Value["PackageExpressTrackNumber"] ;?></small></h3>
+            <?php foreach ($Value["PackageTrackData"] as $SecondValue): ?>
+            <p class="tertiary-text fg-white no-margin"><?php echo $SecondValue["time"]; ?></p>
+            <p class="tertiary-text fg-white"><?php echo $SecondValue["content"]; ?></p>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <div class="brand bg-dark"> <span class="label text-right fg-white">包裹在途</span> </div>
+    </a>
+    <div class="tile double double-vertical  bg-darkPink" >
+      <div class="tile-content" >
+        <div class="calendar small" data-role="calendar" data-locale="zhCN"></div>
+      </div>
+    </div>
+    <a class="tile bg-dark" data-click="transform" href="http://wpa.qq.com/msgrd?v=3&uin=413042102&site=qq&menu=yes">
+    <div class="tile-content image"> <img src="images/service.jpg"> </div>
+    <div class="brand bg-black"> <span class="label fg-white">联系客服</span> </div>
+    </a> <a class="tile bg-dark" data-click="transform">
+    <div class="tile-content image"> <img src="images/jeki_chan.jpg"> </div>
+    <div class="brand bg-black"> <span class="label fg-white">联系派件员</span> </div>
+    </a> <a class="tile double bg-lightBlue live" data-click="transform" href="workspace/mystorehouse">
+    <div class="tile-content icon"> <i class="icon-search"></i> </div>
+    <div class="brand"> <span class="label fg-white">查询历史</span> </div>
+    </a> <a class="tile  bg-orange" data-click="transform" href="workspace/reservepackage">
+    <div class="tile-content icon"> <i class="icon-play"></i> </div>
+    <div class="brand"> <span class="label fg-white">预约包裹</span> </div>
+    </a> <a class="tile bg-darkRed" data-click="transform" href="workspace/guide">
+    <div class="tile-content icon"> <span class="icon-help"></span> </div>
+    <div class="brand">
+      <div class="label">Help+Tips</div>
+    </div>
+    </a> <a class="tile bg-darkRed" data-click="transform" href="workspace/findlostpackage">
+    <div class="brand">
+      <div class="label"> <span  class="no-margin fg-white">失物招领</span> </div>
+    </div>
+    </a> </div>
+  <!-- End group --> 
+</div>
+</body>
+</html>

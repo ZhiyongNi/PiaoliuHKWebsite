@@ -1,0 +1,14 @@
+{
+  "aaData": [
+  <?php  $count = count($this->TransitBillTable);
+	foreach ($this->TransitBillTable as $Key => $Value): ?>
+{
+      "TransitBillID": "<?php echo $Value["TransitBillID"] ?>",
+      "TransitBillRelatedPackageQuantity": "<?php echo $Value["TransitBillRelatedPackageQuantity"] ?>",
+      "TransitBillPrice": "<?php echo $Value["TransitBillPrice"] ?>",
+      "TransitBillMethod": "<?php echo $Value["TransitBillMethod"] ?>",
+      "TransitBillInitializationTimeStamp": "<?php echo $Value["TransitBillInitializationTime"] ?>",
+      "TransitBillStatus": "<?php echo $Value["TransitBillStatus"]?>"
+    } <?php echo ($Key + 1 < $count ? ',' : '');
+	 endforeach; ?> ]
+}

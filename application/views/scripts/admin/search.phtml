@@ -1,0 +1,19 @@
+<form action="searchform" method="post" id="searchform" target="_new">
+  <p>
+    <label>包裹ID </label>
+    <input name="PackageID" type="text" value="" />
+    <input type="radio" name="SearchObject" value="<?php echo $this->SearchObjectType["Package"] ?>" id="SearchObject" />
+  </p>
+  <p>
+    <label>运单ID </label>
+    <input name="TransitBillID" type="text" value="" />
+    <input type="radio" name="SearchObject" value="<?php echo $this->SearchObjectType["TransitBill"] ?>" id="SearchObject" />
+  </p>
+  <input name="" type="submit" value="提交" />
+</form>
+<?php
+
+
+
+
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="product" content="Metro UI CSS Framework">
+<meta name="description" content="Simple responsive css framework">
+<meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+<!-- Load CSS Libraries -->
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+
+<!-- Load JavaScript Libraries -->
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+<!-- Metro UI CSS JavaScript plugins -->
+<script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+<!-- Local JavaScript -->
+<script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+
+<title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+</head>
+<body class="metro">
+<header class="bg-blue" data-load="/template/header"> </header>
+<div class="container">
+  <h1> <a href="/workspace"><i class="icon-arrow-left-3 fg-darker smaller"></i></a> </h1>
+  <div class="grid">
+    <div class="span9">
+      <form action="reservepackageform" method="post" id="reservepackageform" >
+        <fieldset>
+          <legend>预约包裹</legend>
+          <label>快递公司</label>
+          <div class="input-control select" data-role="input-control">
+            <select name="PackageExpressCompany" id="PackageExpressCompany">
+              <option value="<?php echo $this->ShunfengExpress; ?>">顺丰快递</option>
+              <option value="<?php echo $this->YuantongExpress; ?>">圆通快递</option>
+              <option value="<?php echo $this->ZhongtongExpress; ?>">中通快递</option>
+              <option value="<?php echo $this->YundaExpress; ?>">韵达快递</option>
+              <option value="<?php echo $this->ShentongExpress; ?>">申通快递</option>
+              <option value="<?php echo $this->EMSExpress; ?>">EMS快递</option>
+              <option value="<?php echo $this->HuitongExpress; ?>">汇通快递</option>
+              <option value="<?php echo $this->TiantianExpress; ?>">天天快递</option>
+              <option value="<?php echo $this->YousuExpress; ?>">优速快递</option>
+              <option value="<?php echo $this->JingdongExpress; ?>">京东快递</option>
+              <option value="<?php echo $this->GuotongExpress; ?>">国通快递</option>
+              <option value="<?php echo $this->LongbangExpress; ?>">龙邦快递</option>
+              <option value="<?php echo $this->SuerExpress; ?>">速尔快递</option>
+              <option value="<?php echo $this->HuiqiangExpress; ?>">汇强快递</option>
+              <option value="<?php echo $this->ZJSExpress; ?>">宅急送快递</option>
+              <option value="<?php echo $this->QuanfengExpress; ?>">全峰快递</option>
+              <option value="<?php echo $this->DangdangExpress; ?>">当当物流</option>
+              <option value="<?php echo $this->AmazonExpress; ?>">亚马逊物流</option>
+              <option value="<?php echo $this->PackageExpressCompanyUnknown; ?>">未知</option>
+            </select>
+          </div>
+          <label>快递单编号</label>
+          <div class="input-control text" data-role="input-control">
+            <input type="text" placeholder="input express code" name="PackageExpressTrackNumber">
+            <button class="btn-clear" tabindex="-1"></button>
+          </div>
+          <label>包裹来源</label>
+          <div class="input-control select" data-role="input-control">
+            <select name="PackageChannel" id="PackageChannel">
+              <option value="<?php echo $this->TaoBaoWEB; ?>">淘宝网/天猫</option>
+              <option value="<?php echo $this->JingDongWEB; ?>">京东商城</option>
+              <option value="<?php echo $this->DangdangWEB; ?>">当当网</option>
+              <option value="<?php echo $this->AmazonWEB; ?>">亚马逊</option>
+              <option value="<?php echo $this->VIPWEB; ?>">唯品会</option>
+              <option value="<?php echo $this->PackageChannelUnknown; ?>">未知</option>
+            </select>
+          </div>
+          <label>备注</label>
+          <div class="input-control textarea" data-role="input-control">
+            <textarea name="Remarks" placeholder="请描述该包裹，易于查询"></textarea>
+          </div>
+          <input type="submit" value="Submit">
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

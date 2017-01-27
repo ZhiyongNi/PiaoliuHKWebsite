@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+                    <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+                    <meta name="product" content="Metro UI CSS Framework">
+                    <meta name="description" content="Simple responsive css framework">
+                    <meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+                    <!-- Load CSS Libraries -->
+                    <link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+                    <link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+                    <link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+                    <link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+                    <link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+
+                    <!-- Load JavaScript Libraries -->
+                    <script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+                    <script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+                    <script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+                    <script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+                    <!-- Metro UI CSS JavaScript plugins -->
+                    <script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+                    <!-- Local JavaScript -->
+                    <script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+                    <script type="text/javascript">
+function selectPackage(obj) {
+    if($(obj).hasClass("selected")){
+        $(obj).removeClass("selected");
+    }else{
+        $(obj).addClass("selected");
+    }
+	GoShipAble();
+}
+function GoShipAble() {
+	$('#GoShip').removeClass('disabled');
+	$('#GoShip').removeClass('inverse');
+	$('#GoShip').addClass('success');
+	$('#GoShip').removeAttr('disabled');
+	}
+function selectTransitBillMethod(){
+  var $options=$('#TransitBillMethod:checked').val();
+
+switch($options){
+	case '0':
+	$('#ExpressAddress').removeClass('no-display');
+	$('#HousePickAddress').addClass('no-display');
+	$('#SelfPickAddress').addClass('no-display');
+	break;	
+	case '1':
+	$('#ExpressAddress').addClass('no-display');
+	$('#HousePickAddress').removeClass('no-display');
+	$('#SelfPickAddress').addClass('no-display');
+	break;	
+	case '2':
+	$('#ExpressAddress').addClass('no-display');
+	$('#HousePickAddress').addClass('no-display');
+	$('#SelfPickAddress').removeClass('no-display');
+	break;	
+}
+	
+	}
+function GoShip() {
+    var $RelatedPackageID = new Array();
+    $("[name='RelatedPackageID[]']").each(function () {
+        if($(this).hasClass('selected')){
+        $RelatedPackageID.push($(this).attr('id'));
+        }
+    })
+    var $TransitBillMethod=$('#TransitBillMethod:checked').val();
+    var $TransitBillAddress="";
+    switch($TransitBillMethod){
+        case '0':
+            $TransitBillAddress= $("[name='ExpressAddress']").val();
+            break;
+        case '1':
+            $TransitBillAddress= $("[name='HousePickAddress']").val();
+            break;
+        case '2':
+            $TransitBillAddress= $("[name='SelfPickAddress']").val();
+            break;
+    }
+    $.post("goshipform",{
+        RelatedPackageID:$RelatedPackageID,
+        TransitBillMethod:$TransitBillMethod,
+        TransitBillAddress:$TransitBillAddress,
+        TransitBillSettlement:$("[name='TransitBillSettlement']:checked").val(),
+        TransitBillSignDate:$('#TransitBillSignDate').html()
+    },function (data,textStatus){
+        $('#TransitBillSignDateRemarks').html(data);
+    });
+}
+    </script>
+                    <script>
+                        $(function(){
+                            var cal = $("#cal-events").calendar({
+                                multiSelect: false,								
+                                getDates: function(data){
+                                    var r = "", out = $("#TransitBillSignDate").html("");
+								    $.each(data, function(i, d){
+										r += d;
+                                    });
+                                    out.html(r);
+									
+                                },  });                           
+                        })
+                    </script>
+                    <title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+                    </head>
+                    <body class="metro">
+<header class="bg-dark" data-load="/template/header"></header>
+<div class="container">
+                      <h1> <a href="/"><i class="icon-arrow-left-3 fg-darker smaller"></i></a> ListView<small class="on-right">component</small> </h1>
+                      <div class="grid">
+    <div class="row">
+                          <div class="span8">
+        <div class="panel span4">
+                              <div class="panel-header bg-lightBlue fg-white"> 漂流瓶抵达至 </div>
+                              <div class="panel-content">
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillMethod" value="0" id="TransitBillMethod" onclick="selectTransitBillMethod()" />
+                <span class="check"></span>A.学校及居住区定点派送 </label>
+                                </div>
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillMethod" value="1" id="TransitBillMethod" onclick="selectTransitBillMethod()" />
+                <span class="check"></span>B.香港仓库自行取货 </label>
+                                </div>
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillMethod" value="2" id="TransitBillMethod" onclick="selectTransitBillMethod()" checked/>
+                <span class="check"></span>C.送往指定地点门 </label>
+                                </div>
+            <div class="input-control text no-display" id="ExpressAddress" >
+                                  <input type="text" name="ExpressAddress" value="" placeholder="input text"/>
+                                  <button class="btn-clear"></button>
+                                </div>
+            <div class="input-control text no-display" id="HousePickAddress">
+                                  <input type="text" name="HousePickAddress" value="input te" disabled/>
+                                  <button class="btn-clear"></button>
+                                </div>
+            <div class="input-control select" id="SelfPickAddress">
+                                  <select name="SelfPickAddress">
+                <?php foreach ($this->SelfPickAddressList as $Key => $Value): ?>
+                <option name="TransitBillMethodAddress" value="<?php echo $Key ?>"><?php echo $Value ?></option>
+                <?php endforeach; ?>
+              </select>
+                                </div>
+          </div>
+                            </div>
+        <div class="panel span4">
+                              <div class="panel-header bg-lightBlue fg-white"> 支付方式 </div>
+                              <div class="panel-content">
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillSettlement" value="0" id="TransitBillSettlement" checked/>
+                <span class="check"></span>A.货到现金支付 </label>
+                                </div>
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillSettlement" value="1" id="TransitBillSettlement" />
+                <span class="check"></span>B.货到银行卡支付 </label>
+                                </div>
+            <div class="input-control radio default-style " data-role="input-control">
+                                  <label>
+                <input type="radio" name="TransitBillSettlement" value="2" id="TransitBillSettlement"/>
+                <span class="check"></span>C.支付宝在线支付 </label>
+                                </div>
+          </div>
+                            </div>
+        <div class="span8 panel" style="margin:20px 0px 0px 0px;">
+                              <div class="panel-header bg-lightBlue fg-white"> 配送时间 </div>
+                              <div class="panel-content">
+            <div class="span4">
+                                  <div class="calendar" id="cal-events" data-locale="zhCN"></div>
+                                </div>
+            <div class="span3">
+                                  <blockquote>
+                <p class="text">请选择要配送的时间</p>
+              </blockquote>
+                                  <div id="TransitBillSignDate" class="text-info" style="margin-top:20px"></div>
+                                  <div id="TransitBillSignDateRemarks" class="text-info"></div>
+                                  <br />
+                                </div>
+          </div>
+                            </div>
+      </div>
+                          <div class="span4 ">
+        <div class="listview">
+                              <div class="list-group">
+            <div class="group-title">包裹在库</div>
+            <div class="group-content">
+                                  <?php foreach ($this->PackageWaitingList as $Value): ?>
+                                  <a href="javascript:void(0)"  name="RelatedPackageID[]" id="<?php echo $Value["PackageID"] ?>" class="list" onclick="selectPackage(this)">
+              <div class="list-content"> <img src="images/excel2013icon.png" class="icon">
+                                    <div class="data"> <span class="list-subtitle"><?php echo $Value["PackageID"] ?></span> <span class="list-title"><?php echo $Value["PackageExpressCompany"].$Value["PackageExpressTrackNumber"]  ?></span><span class="list-remark">运费: HK$<?php echo $Value["PackageFare"] ?> <span class="place-right">From:<?php echo $Value["PackageChannel"] ?></span></span><span class="list-remark"><?php echo ($Value["PackageRemarks"]?$Value["PackageRemarks"]:'&nbsp;'); ?> </span> </div>
+                                  </div>
+              </a>
+                                  <?php endforeach; ?>
+                                </div>
+          </div>
+                              <div class="list-group">
+            <div class="group-title">包裹在途</div>
+            <div class="group-content">
+                                  <?php foreach ($this->PackageReservationList as $Value): ?>
+                                  <a href="javascript:void(0)"  name="RelatedPackageID[]" id="<?php echo $Value["PackageID"] ?>" class="list" onclick="selectPackage(this)">
+              <div class="list-content"> <img src="images/excel2013icon.png" class="icon">
+                                    <div class="data"> <span class="list-subtitle"><?php echo $Value["PackageID"] ?></span> <span class="list-title"><?php echo $Value["PackageExpressCompany"].$Value["PackageExpressTrackNumber"]  ?></span><span class="list-remark">运费: HK$<?php echo $Value["PackageFare"] ?> <span class="place-right">From:<?php echo $Value["PackageChannel"] ?></span></span><span class="list-remark"><?php echo ($Value["PackageRemarks"]?$Value["PackageRemarks"]:'&nbsp;'); ?> </span> </div>
+                                  </div>
+              </a>
+                                  <?php endforeach; ?>
+                                </div>
+          </div>
+                            </div>
+        <button class="command-button inverse disabled" id="GoShip" onclick="GoShip()" disabled> <i class="icon-share-3 on-right"></i> 塞上瓶盖，走起~ <small>Use this option for home or work</small> </button>
+      </div>
+                        </div>
+  </div>
+                    </div>
+</body>
+</html>

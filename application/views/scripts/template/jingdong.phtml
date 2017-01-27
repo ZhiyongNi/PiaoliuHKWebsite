@@ -1,0 +1,147 @@
+<div class="thickbox" id="" style="width: 692px; height: 492px;">
+  <div class="thickwrap" style="width: 700px;">
+    <div class="thicktitle" id="" style="width:700"><span>编辑收货地址</span></div>
+    <div class="thickcon" id="" style="width: 680px; height: 490px; padding-left: 10px; padding-right: 10px;">
+      <div id="addressDiagDiv">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link type="text/css" rel="stylesheet" href="http://misc.360buyimg.com/lib/skin/2013/base.css">
+        <link type="text/css" rel="stylesheet" href="http://misc.360buyimg.com/jd2008/skin/df/user.base.2012.css">
+        <link type="text/css" rel="stylesheet" href="http://misc.360buyimg.com/jd2008/skin/df/user.eshop20131011.css">
+        <title>收货地址</title>
+        <div class="m" id="edit-cont">
+          <div class="mc">
+            <div class="form">
+              <div class="item"> <span class="label"><em>*</em>收货人：</span>
+                <div class="fl">
+                  <input id="consigneeName" value="<?php echo $this->CustomerName;?>" type="text" class="text" onblur="checkConsigneeName()">
+                  <span id="consigneeNameNote" class="error-msg hide"></span></div>
+                <div class="clr"></div>
+              </div>
+              <div class="item"> <span class="label"><em>*</em>所在地区：</span>
+                <div class="fl">
+                  <select id="provinceDiv" class="sele" onchange="loadCity()">
+                    <option>请选择</option>
+                    <option value="1">北京</option>
+                    <option value="2">上海</option>
+                    <option value="3">天津</option>
+                    <option value="4">重庆</option>
+                    <option value="5">河北</option>
+                    <option value="6">山西</option>
+                    <option value="7">河南</option>
+                    <option value="8">辽宁</option>
+                    <option value="9">吉林</option>
+                    <option value="10">黑龙江</option>
+                    <option value="11">内蒙古</option>
+                    <option value="12">江苏</option>
+                    <option value="13">山东</option>
+                    <option value="14">安徽</option>
+                    <option value="15">浙江</option>
+                    <option value="16">福建</option>
+                    <option value="17">湖北</option>
+                    <option value="18">湖南</option>
+                    <option value="19" <?php echo ($this->CustomerAvatarAddress["StationProvince"]=='广东' ? 'selected' : '')?>>广东</option>
+                    <option value="20">广西</option>
+                    <option value="21">江西</option>
+                    <option value="22">四川</option>
+                    <option value="23">海南</option>
+                    <option value="24">贵州</option>
+                    <option value="25">云南</option>
+                    <option value="26">西藏</option>
+                    <option value="27">陕西</option>
+                    <option value="28">甘肃</option>
+                    <option value="29">青海</option>
+                    <option value="30">宁夏</option>
+                    <option value="31">新疆</option>
+                    <option value="32">台湾</option>
+                    <option value="42">香港</option>
+                    <option value="43">澳门</option>
+                    <option value="84">钓鱼岛</option>
+                  </select>
+                  <select id="cityDiv" class="sele" onchange="loadCounty()">
+                    <option value="0">请选择</option>
+                    <option value="1601">广州市</option>
+                    <option value="1607" <?php echo ($this->CustomerAvatarAddress["StationCity"]=='深圳市' ? 'selected' : '')?>>深圳市</option>
+                    <option value="1609">珠海市</option>
+                    <option value="1611">汕头市</option>
+                    <option value="1617">韶关市</option>
+                    <option value="1627">河源市</option>
+                    <option value="1634">梅州市</option>
+                    <option value="1643">惠州市</option>
+                    <option value="1650">汕尾市</option>
+                    <option value="1655">东莞市</option>
+                    <option value="1657">中山市</option>
+                    <option value="1659">江门市</option>
+                    <option value="1666">佛山市</option>
+                    <option value="1672">阳江市</option>
+                    <option value="1677">湛江市</option>
+                    <option value="1684">茂名市</option>
+                    <option value="1690">肇庆市</option>
+                    <option value="1698">云浮市</option>
+                    <option value="1704">清远市</option>
+                    <option value="1705">潮州市</option>
+                    <option value="1709">揭阳市</option>
+                  </select>
+                  <select id="countyDiv" class="sele" onchange="loadTown()">
+                    <option value="0">请选择</option>
+                    <option value="3155">南山区</option>
+                    <option value="3638">罗湖区</option>
+                    <option value="3639">福田区</option>
+                    <option value="4773">宝安区</option>
+                    <option value="6675">光明新区</option>
+                    <option value="6736">坪山新区</option>
+                    <option value="6737">大鹏新区</option>
+                    <option value="40152" <?php echo ($this->CustomerAvatarAddress["StationDistrict"]=='龙岗区' ? 'selected' : '')?>>龙岗区</option>
+                    <option value="47387">盐田区</option>
+                    <option value="47388">龙华新区</option>
+                  </select>
+                  <select id="townDiv" class="sele hide" onchange="fillTownName()" style="display: inline-block;">
+                    <option value="0">请选择</option>
+                    <option value="47419">布吉街道</option>
+                    <option value="47420">坂田街道</option>
+                    <option value="47421">南湾街道</option>
+                    <option value="47422">平湖街道</option>
+                    <option value="47423" <?php echo ($this->CustomerAvatarAddress["StationStreets"]=='横岗街道' ? 'selected' : '')?>>横岗街道</option>
+                    <option value="47424">龙岗街道</option>
+                    <option value="47425">龙城街道</option>
+                    <option value="47426">坪地街道</option>
+                  </select>
+                  <span class="error-msg" id="areaNote"></span> </div>
+                <div class="clr"></div>
+              </div>
+              <div class="item"> <span class="label"><em>*</em>详细地址：</span>
+                <div class="fl"><span style="float: left;margin-right: 5px;line-height:32px;" id="areaName">广东深圳市龙岗区横岗街道</span>
+                  <input id="consigneeAddress" value="<?php echo $this->CustomerAvatarAddress["StationApartment"]."_".$this->CustomerSelfMobile;?>" type="text" class="text text1" onblur="checkConsigneeAddress()">
+                </div>
+                <span class="error-msg" id="consigneeAddressNote"></span>
+                <div class="clr"></div>
+              </div>
+              <div class="item">
+                <div class="fl"> <span class="label"><em>*</em>手机号码：</span>
+                  <input id="consigneeMobile" value="<?php echo $this->CustomerAvatarMobile;?>" type="text" maxlength="11" class="text" onblur="checkMobile()">
+                </div>
+                <div class="fl"><span class="extra-span ftx-03">或</span></div>
+                <div class="fl"> <span class="label">固定电话：</span>
+                  <input id="consigneePhone" value="" type="text" class="text" onblur="checkMobile()">
+                  <span class="error-msg hide" id="consigneeMobileNote"></span> <span class="clr"></span> </div>
+                <div class="clr"></div>
+              </div>
+              <div class="item"> <span class="label">邮箱：</span>
+                <div class="fl">
+                  <input id="consigneeEmail" value="" maxlength="50" type="text" class="text text1" onblur="checkEmail()">
+                  <span class="error-msg hide" id="emailNote"></span></div>
+                <div class="clr"></div>
+              </div>
+              <div class="item"> <span class="label"><em>*</em>地址别名：</span>
+                <div class="fl">
+                  <input id="consigneeAlias" value="漂流瓶" type="text" class="text" onblur="checkConsigneeAlias()">
+                  <span class="ftx-03">设置一个易记的名称，如：“送到家里”、“送到公司”</span><span class="error-msg hide" id="consigneeAliasNote"></span></div>
+                <div class="clr"></div>
+              </div>
+              <div class="btns"><a href="javascript:;" onclick="editAddress('137600795');" class="e-btn gray-btn save-btn">保存收货地址</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>

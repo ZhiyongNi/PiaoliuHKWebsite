@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="product" content="Metro UI CSS Framework">
+<meta name="description" content="Simple responsive css framework">
+<meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+<!-- Load CSS Libraries -->
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+
+<!-- Load JavaScript Libraries -->
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+<!-- Metro UI CSS JavaScript plugins -->
+<script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+<!-- Local JavaScript -->
+<script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+
+<script src="http://www.kindex.com/js/jquery/jquery.dataTables.js"></script>
+<script type="text/javascript" class="init">
+
+
+$(document).ready(function() {	
+	$('#AllTransitBillTables tbody').on( 'click', 'tr', function () {
+		if ( $(this).hasClass('selected') ) {
+			$(this).removeClass('selected');
+		}
+		else {
+			$('#AllTransitBillTables').DataTable().$('tr.selected').removeClass('selected');
+			$(this).addClass('selected');
+		}
+	} );
+
+} );
+
+
+	</script>
+<title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+</head>
+<body class="metro">
+<header class="bg-dark" data-load="/template/header"></header>
+<div class="container">
+  <h1> <a href="/"><i class="icon-arrow-left-3 fg-darker smaller"></i></a>  </h1>
+  <div class="grid ">
+    <h3>瓶盖流水账</h3>
+   
+  <table class="table striped hovered dataTable" id="AllTransitBillTables">
+          <thead>
+            <tr>
+              <th class="text-left">时间</th>
+              <th class="text-left">变化值</th>
+              <th class="text-left">说明</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+          <tfoot>
+            <tr>
+             <th class="text-left">时间</th>
+              <th class="text-left">变化值</th>
+              <th class="text-left">说明</th>
+            </tr>
+          </tfoot>
+        </table>
+        <script>
+                $(function(){
+                    $('#AllTransitBillTables').dataTable( {
+                        "bProcessing": true,
+                        "sAjaxSource": "/template/allcapcreditdata",
+                        "aoColumns": [
+                            { "mData": "CapCreditTimeStamp" },
+                            { "mData": "CapCreditLedger" },
+                            { "mData": "CapCreditRemarks" }
+                        ]
+                    } );
+                });
+            </script> 
+
+</div>
+</body>
+</html>

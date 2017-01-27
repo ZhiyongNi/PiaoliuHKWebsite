@@ -1,0 +1,35 @@
+<form id="" name="" method="post" action="">
+  <p>ID
+    <input name="TransitBillID" type="text" disabled="disabled" id="TransitBillID" value="<?php echo $this->TransitBillID;?>" />
+  </p>
+  <p>收货人
+    <input name="TransitBillOwnerID" type="text" disabled="disabled" id="TransitBillOwnerID" value="<?php echo $this->TransitBillOwnerID;?>" />
+  </p>
+  <p>关联包裹
+    <input name="TransitBillRelatedPackageIDArray" type="text" id="TransitBillRelatedPackageIDArray" value="<?php echo $this->TransitBillRelatedPackageIDArray;?>" />
+  </p>
+  <p>包裹个数
+    <input name="TransitBillRelatedPackageQuantity" type="text" id="TransitBillRelatedPackageQuantity" value="<?php echo $this->TransitBillRelatedPackageQuantity;?>" />
+  </p>
+  <p>运单价格
+    <input name="TransitBillPrice" type="text" id="TransitBillPrice" value="<?php echo $this->TransitBillPrice;?>" />
+  </p>
+  <p>收货方式
+    <input name="TransitBillMethod" type="text" id="TransitBillMethod" value="<?php echo $this->TransitBillMethod;?>" />
+  </p>
+  <p>结算方式
+    <input name="TransitBillSettlement" type="text" id="TransitBillSettlement" value="<?php echo $this->TransitBillSettlement;?>" />
+  </p>
+  <p>建立时间
+    <input name="TransitBillInitializationTime" type="text" id="TransitBillInitializationTime" value="<?php echo $this->TransitBillInitializationTime;?>" />
+  </p>
+  <p>签收日期
+    <input name="TransitBillSignDate" type="text" disabled="disabled" id="TransitBillSignDate" value="<?php echo $this->TransitBillSignDate;?>" />
+  </p>
+  <p>运单状态
+    <input name="TransitBillStatus" type="text" disabled="disabled" id="TransitBillStatus" value="<?php echo $this->TransitBillStatus;?>" />
+  </p>  
+  <p>
+    <input type="submit" name="register" id="register" value="登记" />
+  </p>
+</form>

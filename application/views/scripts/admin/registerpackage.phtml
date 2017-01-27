@@ -1,0 +1,32 @@
+<form id="registerpackageform" name="registerpackageform" method="post" action="registerpackageform">
+  <p>收货人
+    <input name="PackageOwnerID" type="text" disabled="disabled" id="PackageOwnerID" />
+  </p>
+  <p> 手机号
+    <input type="text" name="PackageOwnerMobile" id="PackageOwnerMobile" />
+  </p>
+  <p> 快递公司
+    <input type="text" name="PackageExpressCompany" id="PackageExpressCompany" />
+  </p>
+   <p> 运单号
+    <input type="text" name="PackageExpressTrackNumber" id="PackageExpressTrackNumber" />
+  </p>
+  <p> 照片
+    <input type="text" name="PackageSnapshot" id="PackageSnapshot" />
+  </p>
+   <p> 重量
+    <input type="text" name="PackageWeight" id="PackageWeight" />
+  </p>
+   <p> 运费
+    <input type="text" name="PackageFare" id="PackageFare" />
+  </p>
+   <p> 入库时间
+    <input name="PackageInTime" type="text" id="PackageInTime" value="<?php echo $this->PackageInTime ?>" readonly="readonly"/>
+  </p>
+   <p> 出库时间
+    <input name="PackageOutTime" type="text" disabled="disabled" id="PackageOutTime" />
+  </p>
+  <p>
+    <input type="submit" name="register" id="register" value="登记" />
+  </p>
+</form>

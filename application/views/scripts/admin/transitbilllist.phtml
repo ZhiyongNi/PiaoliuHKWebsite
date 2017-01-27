@@ -1,0 +1,24 @@
+<form action="transitbilllistpreviewform" method="post" id="transitbilllistpreviewform" target="_new">
+  <p>
+    <label>运单.待出库</label>
+    <input type="radio" name="SearchTransitBillType" value="<?php echo $this->Checkout ?>" id="SearchTransitBillType" />
+  </p>
+  <p>
+    <label>运单.在途</label>
+    <input type="radio" name="SearchTransitBillType" value="<?php echo $this->inShip ?>" id="SearchTransitBillType" />
+  </p>
+  <p>
+    <label>运单.已签收</label>
+    <input type="radio" name="SearchTransitBillType" value="<?php echo $this->Signed ?>" id="SearchTransitBillType" />
+  </p>
+  <input name="search" type="submit" id="search" value="查询" />
+</form>
+<?php
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="product" content="Metro UI CSS Framework">
+<meta name="description" content="Simple responsive css framework">
+<meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+<!-- Load CSS Libraries -->
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+
+<!-- Load JavaScript Libraries -->
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+<!-- Metro UI CSS JavaScript plugins -->
+<script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+<!-- Local JavaScript -->
+<script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+
+<script type="text/javascript">
+function markPackage(obj) {
+    $("[name='UncheckedPackageID[]']").each(function () {
+        $(this).removeClass("marked");
+    })
+    $(obj).addClass("marked");
+    $("#track-info").load("/template/packagetrackinfo?PackageID="+ $(obj).attr("id"));
+    }
+</script>
+<title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+</head>
+<body class="metro">
+<header class="bg-blue" data-load="/template/header"> </header>
+<div class="container">
+  <h1> <a href="/workspace"><i class="icon-arrow-left-3 fg-darker smaller"></i></a> </h1>
+  <div class="grid ">
+   <h3>在途包裹跟踪</h3>
+    <div class="row">
+      <div class="span5">
+        <h2>包裹列表</h2>
+        <div class="listview-outlook" data-role="listview">
+          <div class="list-group  <?php echo ($this->TransitBillCheckoutTable ? '' : 'collapsed');?>"> <a href="" class="group-title">包裹待出库</a>
+            <div class="group-content">
+              <?php foreach ($this->TransitBillCheckoutTable as $Value): ?>
+              <a class="list" href="javascript:void(0)" name="UnsignedTransitBillID[]" id="<?php echo $this->escape($Value["TransitBillID"]) ?>" onclick="markPackage(this)">
+              <div class="list-content"> <span class="list-title"><?php echo $this->escape($Value["TransitBillID"]) ?></span> <span class="list-subtitle"><span class="place-right">From:<?php echo $Value["PackageChannel"] ?></span><?php echo $Value["PackageExpressCompany"].$Value["PackageExpressTrackNumber"]  ?></span> <span class="list-remark"><?php echo ($Value["PackageRemarks"]?$Value["PackageRemarks"]:'&nbsp;'); ?></span> </div>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <div class="list-group <?php echo ($this->TransitBillinShipTable ? '' : 'collapsed')?>"> <a href="" class="group-title">包裹在途</a>
+            <div class="group-content">
+              <?php foreach ($this->TransitBillinShipTable as $Value): ?>
+              <a class="list" href="javascript:void(0)" name="UnsignedTransitBillID[]" id="<?php echo $this->escape($Value["TransitBillID"]) ?>" onclick="markPackage(this)">
+              <div class="list-content"> <span class="list-title"><span class="place-right icon-flag-2 fg-red smaller"></span><?php echo $this->escape($Value["TransitBillID"]) ?></span> <span class="list-subtitle"><span class="place-right">Price:<?php echo $this->escape($Value["TransitBillPrice"]) ?></span><?php echo $this->escape($Value["TransitBillMethod"]) ?></span> <span class="list-remark"><?php echo $this->escape($Value["TransitBillSignDate"]) ?></span> </div>
+              </a>
+              <?php endforeach; ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="span8" id="track-info"> </div>
+    </div>
+  </div>
+</div>
+<script src="js/hitua.js"></script>
+</body>
+</html>

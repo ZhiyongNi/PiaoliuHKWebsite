@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+</head>
+
+<body>
+<form action="preferenceform" method="post" id="preferenceform">
+  <p>
+    <label> 名字 </label>
+    <input name="CustomerName" type="text" value="<?php echo $this->CustomerName;?>" />
+    <input name="CustomerNameCB" type="checkbox" id="CustomerNameCB" value="CustomerNameCB" />
+  </p>
+  <p>
+    <label> 学校 </label>
+    <input name="CustomerCollage" type="text" value="<?php echo $this->CustomerCollage;?>" />
+    <input name="CustomerCollageCB" type="checkbox" id="CustomerCollageCB" value="CustomerCollageCB" />
+  </p>
+  <p>
+    <label> 手机 </label>
+    <input name="CustomerSelfMobile" type="text" value="<?php echo $this->CustomerSelfMobile;?>" />
+    <input name="CustomerSelfMobileCB" type="checkbox" id="CustomerSelfMobileCB" value="CustomerSelfMobileCB" />
+  </p>
+  <p>
+    <label> 地址 </label>
+    <span>
+    <select name="CustomerSelfAddress_Province" class="sele" id="CustomerSelfAddress_Province">
+      <option value="-22"><?php echo $this->CustomerSelfAddress["Province"];;?></option>
+      <option value="0">上海市</option>
+    </select>
+    </span> <span>
+    <select name="CustomerSelfAddress_City" class="sele" id="CustomerSelfAddress_City">
+      <option value="-22"><?php echo $this->CustomerSelfAddress["City"];?></option>
+      <option value="0">上海市</option>
+    </select>
+    </span> <span>
+    <select name="CustomerSelfAddress_District" class="sele" id="CustomerSelfAddress_District">
+      <option value="-22"><?php echo $this->CustomerSelfAddress["District"];?></option>
+      <option value="0">徐汇区</option>
+    </select>
+    </span>
+    <input id="CustomerSelfAddress_Apartment" name="CustomerSelfAddress_Apartment" type="text" value="<?php echo $this->CustomerSelfAddress["Apartment"];?>" class="text text1" maxlength="50" />
+    <input name="CustomerSelfAddressCB" type="checkbox" id="CustomerSelfAddressCB" value="CustomerSelfAddressCB" />
+  </p>
+  <p>
+    <label>邮箱 </label>
+    <input name="CustomerMail" type="text" value="<?php echo $this->CustomerMail;?>" />
+    <input name="CustomerMailCB" type="checkbox" id="CustomerMailCB" value="CustomerMailCB" />
+  </p>
+  <br />
+  <p>
+    <label>QQ </label>
+    <label><?php echo $this->CustomerQQ;?> </label>
+    <input name="" type="button" />
+  </p>
+  <p>
+    <label>人人 </label>
+    <label><?php echo $this->CustomerRenren;?> </label>
+    <input name="" type="button" />
+  </p>
+  <p>
+    <label>微信 </label>
+    <label><?php echo $this->CustomerWeixin;?> </label>
+    <input name="" type="button" />
+  </p>
+  <p>
+    <label>支付宝 </label>
+    <label><?php echo $this->CustomerAlipay;?> </label>
+    <input name="" type="button" />
+  </p>
+  <br />
+  <p>
+    <label>新密码 </label>
+    <input name="NewPassword" type="text" value="" />
+    <input name="NewPasswordCB" type="checkbox" id="NewPasswordCB" value="NewPasswordCB" />
+  </p>
+  <br />
+  <p>
+    <label>密码 </label>
+    <input name="Password" type="text" value="" />
+  </p>
+  <input name="" type="submit" value="更新" />
+</form>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<form action="customerlistform" method="post" target="_new" id="customerlistform">
+  <?php if ($this->CustomerList): ?>
+  <table width="1500" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">名字</th>
+      <th scope="col">学校</th>
+      <th scope="col">手机</th>
+      <th scope="col">地址</th>
+      <th scope="col">转运站手机</th>
+      <th scope="col">转运站地址</th>
+      <th scope="col">邮箱</th>
+      <th scope="col">QQ</th>
+      <th scope="col">人人</th>
+      <th scope="col">微信</th>
+      <th scope="col">支付宝</th>
+      <th scope="col">账号状态</th>
+    </tr>
+    <?php foreach ($this->CustomerList as $Value): ?>
+    <tr>
+      <th scope="row"><input type="radio" name="CustomerIDR" id="CustomerIDR" value="<?php echo $Value["CustomerID"] ?>" /></th>
+      <td><?php echo $Value["CustomerID"] ?></td>
+      <td><?php echo $Value["CustomerName"] ?></td>
+      <td><?php echo $Value["CustomerCollage"] ?></td>
+      <td><?php echo $Value["CustomerSelfMobile"] ?></td>
+      <td><?php echo $Value["CustomerSelfAddress"] ?></td>
+      <td><?php echo $Value["CustomerAvatarMobile"] ?></td>
+      <td><?php echo $Value["CustomerAvatarAddress"] ?></td>
+      <td><?php echo $Value["CustomerMail"] ?></td>
+      <td><?php echo $Value["CustomerQQ"] ?></td>
+      <td><?php echo $Value["CustomerRenren"] ?></td>
+      <td><?php echo $Value["CustomerWeixin"] ?></td>
+      <td><?php echo $Value["CustomerAlipay"] ?></td>
+      <td><?php echo $Value["CustomerAccountStatus"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <input type="submit" value="详情" />
+</form>
+</body>
+</html>

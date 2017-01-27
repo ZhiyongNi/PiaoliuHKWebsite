@@ -1,0 +1,14 @@
+{
+  "aaData": [
+  <?php  $count = count($this->PackageList);
+	foreach ($this->PackageList as $Key => $Value): ?>
+{
+     "PackageID": "<?php echo $Value["PackageID"] ?>",
+      "PackageExpressCompany": "<?php echo $Value["PackageExpressCompany"] ?>",
+      "PackageExpressTrackNumber": "<?php echo $Value["PackageExpressTrackNumber"] ?>",
+      "PackageWeight": "<?php echo $Value["PackageWeight"] ?>KG",
+      "PackageStatusChinese": "<?php echo $Value["PackageStatusChinese"] ?>",
+      "PackageChannel": "<?php echo $Value["PackageChannel"] ?>"
+    }<?php echo ($Key + 1 < $count ? ',' : '');
+	 endforeach; ?>]
+}

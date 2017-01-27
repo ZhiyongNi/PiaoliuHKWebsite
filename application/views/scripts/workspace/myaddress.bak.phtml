@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<p>京东</p>
+<p>&nbsp;</p>
+<div class="form" id="consigneePanel">
+  <div class="item"> <span class="label"><em>*</em>收&nbsp;货&nbsp;人：</span>
+    <div class="fl">
+      <input name="consignee_addressName" type="text" class="text" id="consignee_addressName" value="<?php echo $this->CustomerName;?>" maxlength="20" readonly="readonly" />
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label"><em>*</em>所在地区：</span>
+    <div class="fl"> <span id="consignee_area"> <span>
+      <select name="jdp_Province" class="sele" id="jdp_Province">
+        <option value="-22" selected="selected"><?php echo $this->CustomerAvatarAddress["StationProvince"];?></option>
+      </select>
+      </span> <span>
+      <select name="jdp_Citys" class="sele" id="jdp_Citys">
+        <option value="-22"><?php echo $this->CustomerAvatarAddress["StationCity"];?></option>
+      </select>
+      </span> <span>
+      <select name="jdp_Countys" class="sele" id="jdp_Countys">
+        <option value="-22"><?php echo $this->CustomerAvatarAddress["StationDistrict"];?></option>
+      </select>
+      </span> </span> <span class="ftx-03">注：“*”的地区支持货到付款，<a href="http://www.360buy.com/help/cod.aspx" target="_blank">查看货到付款地区</a></span></div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label"><em>*</em>详细地址：</span>
+    <div class="fl">
+      <label id="lblAreaName"><?php echo $this->CustomerAvatarAddress["StationProvince"]." ".$this->CustomerAvatarAddress["StationCity"]." ".$this->CustomerAvatarAddress["StationDistrict"];?></label>
+      <input id="consignee_address" name="consignee_address" type="text" value="<?php echo $this->CustomerAvatarAddress["StationApartment"];?>" class="text text1" maxlength="50" />
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label">手机号码：</span>
+    <div class="fl">
+      <input id="consignee_message" type="text" class="text" value="<?php echo $this->CustomerAvatarMobile;?>" />
+      <span class="ftx-03">用于接收发货通知短信</span></div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label">电话号码：</span>
+    <div class="fl">
+      <input id="consignee_phone" type="text" class="text" value="<?php echo $this->CustomerAvatarAddress["StationTele"];?>" maxlength="20" />
+      <span class="ftx-03">用于送货前确认</span></div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label">电子邮箱：</span>
+    <div class="fl">
+      <input id="consignee_email" value="" type="text" class="text" />
+      <span class="ftx-03">用于接收订单执行状态提醒邮件</span></div>
+    <div class="clr"></div>
+  </div>
+  <div class="item"> <span class="label">邮政编码：</span>
+    <div class="fl">
+      <input id="consignee_postcode" value="<?php echo $this->CustomerAvatarAddress["StationZipCode"];?>" type="text" class="text" />
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
+<p>&nbsp;</p>
+<p>淘宝</p>
+<p>&nbsp;</p>
+<ul class="elem-form section trade:addressEditor"  id="ah:addressForm">
+  <li>
+    <label class="label-like" for="_fm.d._0.f">收货人姓名:</label>
+    <p>
+      <input type="text" name="_fm.d._0.f" id="_fm.d._0.f" value="<?php echo $this->CustomerName;?>" class="inputtext input-long" />
+      <span class="spark-indeed">*</span> </p>
+  </li>
+  <li>
+    <label class="label-like">所在地区:</label>
+    <p>
+      <select name="_fm.d._0.pr" id="J_AddrProv"  onchange="doChange(this)">
+        <option value="440000"><?php echo $this->CustomerAvatarAddress["StationProvince"];?> </option>
+      </select>
+      &nbsp;
+      <select name="_fm.d._0.ci" id="J_AddrCity">
+        <option value="440300"><?php echo $this->CustomerAvatarAddress["StationCity"];?></option>
+      </select>
+      &nbsp;
+      <select name="_fm.d._0.a" id="J_AddrArea">
+        <option value="440303"><?php echo $this->CustomerAvatarAddress["StationDistrict"];?></option>
+      </select>
+      &nbsp;
+      <input id="divisionCode" class="pc:divisionCode" value="" type="hidden" name="_fm.d._0.d" />
+      <span class="spark-indeed">*</span> </p>
+  </li>
+  <li>
+    <label class="label-like" for="_fm.d._0.ad">街道地址:</label>
+    <p>
+      <textarea name="_fm.d._0.ad" id="_fm.d._0.ad" rows="3" cols="60"><?php echo $this->CustomerAvatarAddress["StationApartment"];?></textarea>
+      <span class="spark-indeed">*</span> <span class="ex-margin-left ex-weaken-gray">不需要重复填写省/市/区</span> </p>
+  </li>
+  <li>
+    <label class="label-like" for="_fm.d._0.po">邮政编码:</label>
+    <input type="text" name="_fm.d._0.po" id="_fm.d._0.po" value="<?php echo $this->CustomerAvatarAddress["StationZipCode"];?>" class="inputtext input-short ds:areaCode" />
+    <span class="spark-indeed">*</span> <span class="ex-margin-left ex-weaken-gray">大陆以外地区可不填写</span> </li>
+  <li>
+    <label class="label-like" for="mobilePhone">手机号码:</label>
+    <p>
+      <input type="text" name="_fm.d._0.m" value="<?php echo $this->CustomerAvatarMobile;?>" id="mobilePhone" class="inputtext input-long" />
+      <span class="ex-margin-left ex-weaken-gray">电话号码、手机号码必填一项</span> </p>
+  </li>
+  <li>
+    <label class="label-like">电话号码:</label>
+    <input type="text" name="_fm.d._0.ph" title="区号" value="" id="phoneSection" class="inputtext input-tel-code" />
+    -
+    <input type="text" name="_fm.d._0.pho" title="电话号码" value="" id="phoneCode" class="inputtext input-tel-num" />
+    -
+    <input type="text" name="_fm.d._0.phon" title="分机" value="" id="phoneExt" class="inputtext input-tel-cell" />
+    <span class="ex-margin-left ex-weaken-gray">区号-电话号码-分机</span>
+    <input type=hidden class="pc:formatPhone" id="formatPhone" value="" name="_fm.d._0.p">
+  </li>
+  <li>
+    <label  class="label-like" for="statusAddr">设为默认:</label>
+    <input type="checkbox" name="_fm.d._0.s"  id="statusAddr" />
+  </li>
+</ul>
+<p>&nbsp;</p>
+</body>
+</html>

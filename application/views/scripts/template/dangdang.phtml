@@ -1,0 +1,193 @@
+<link href="http://newaccount.dangdang.com/payhistory/css/my_account_address.css?20130514" rel="stylesheet"
+	type="text/css">
+<link href="http://newaccount.dangdang.com/payhistory/css/mydd_public.css?20130514" rel="stylesheet"
+	type="text/css">
+<link href="http://newaccount.dangdang.com/payhistory/css/mydnew2.css?20130514" rel="stylesheet" type="text/css">
+<link href="http://newaccount.dangdang.com/payhistory/css/reco_wrap.css?20130514" rel="stylesheet" type="text/css">
+</head><body>
+<!-- header -->
+<link href="http://doc.dangdang.com/mydd/style/mydd_head.css" rel="stylesheet" type="text/css" />
+<link href="http://doc.dangdang.com/mydd/style/mydd_public.css" rel="stylesheet" type="text/css" />
+<link href="http://doc.dangdang.com/mydd/style/mydd_title.css" rel="stylesheet" type="text/css" />
+<link href="http://doc.dangdang.com/mydd/style/mydd_leftnavi.css" rel="stylesheet" type="text/css" />
+<link href="http://doc.dangdang.com/mydd/style/mydd_foot.css" rel="stylesheet" type="text/css" />
+<div class="my_address_info my_address_add">
+  <h5> 新增/修改收货地址<span>手机、固定电话选填一项，其余均为必填</span> </h5>
+  <form id="form1" name="form1" method="post" action="">
+    <div class="my_address_add_info">
+      <p>
+        <label>收货人：</label>
+        <input id="txt_ship_man" name="txt_ship_man" type="text" value="<?php echo $this->CustomerName;?>">
+        <span class="nohint" id="vaild_ship_man">请填写收货人姓名</span> </p>
+      <p id="area">
+        <label>地区：</label>
+        <select name="select" id="sel_country" onChange="selChange($(this),{sel_province:$('#sel_province')})">
+          <option value="9000" <?php echo ($this->CustomerAvatarAddress["StationCountry"]=='中国' ? 'selected' : '')?>>中国</option>
+          <option value="16767">阿尔及利亚</option>
+          <option value="11717">阿根廷</option>
+          <option value="16161">阿联酋</option>
+          <option value="12020">埃及</option>
+          <option value="12525">爱尔兰</option>
+          <option value="11919">奥地利</option>
+          <option value="10909">澳大利亚</option>
+          <option value="14747">巴基斯坦</option>
+          <option value="12828">巴拿马</option>
+          <option value="10707">巴西</option>
+          <option value="16868">白俄罗斯</option>
+          <option value="16969">保加利亚</option>
+          <option value="13535">比利时</option>
+          <option value="15656">波多黎各</option>
+          <option value="14949">波兰</option>
+          <option value="17272">玻利维亚</option>
+          <option value="14444">丹麦</option>
+          <option value="10505">德国</option>
+          <option value="15353">俄罗斯</option>
+          <option value="10404">法国</option>
+          <option value="12222">菲律宾</option>
+          <option value="12323">芬兰</option>
+          <option value="12424">关岛</option>
+          <option value="10808">韩国</option>
+          <option value="12121">荷兰</option>
+          <option value="11010">加拿大</option>
+          <option value="15151">柬埔寨</option>
+          <option value="11111">捷克</option>
+          <option value="17373">喀麦隆</option>
+          <option value="14848">科威特</option>
+          <option value="15858">老挝</option>
+          <option value="16262">黎嫩</option>
+          <option value="15959">列支敦士登</option>
+          <option value="16060">卢森堡</option>
+          <option value="17070">卢旺达</option>
+          <option value="13030">罗马尼亚</option>
+          <option value="15555">马尔代夫</option>
+          <option value="13636">马来西亚</option>
+          <option value="10101">美国</option>
+          <option value="14545">蒙古</option>
+          <option value="17171">孟加拉</option>
+          <option value="11818">秘鲁</option>
+          <option value="11212">墨西哥</option>
+          <option value="13232">南非</option>
+          <option value="16666">南斯拉夫</option>
+          <option value="16363">尼日利亚</option>
+          <option value="11313">挪威</option>
+          <option value="12929">葡萄牙</option>
+          <option value="10303">日本</option>
+          <option value="11414">瑞典</option>
+          <option value="13737">瑞士</option>
+          <option value="13838">塞浦路斯</option>
+          <option value="16464">沙特阿拉伯</option>
+          <option value="13333">斯里兰卡</option>
+          <option value="13434">泰国</option>
+          <option value="13939">坦桑尼亚</option>
+          <option value="15757">土耳其</option>
+          <option value="15252">委内瑞拉</option>
+          <option value="15050">文莱</option>
+          <option value="14040">乌克兰</option>
+          <option value="16565">乌拉圭</option>
+          <option value="11515">西班牙</option>
+          <option value="14343">希腊</option>
+          <option value="13131">新加坡</option>
+          <option value="12727">新西兰</option>
+          <option value="14141">匈牙利</option>
+          <option value="12626">牙买加</option>
+          <option value="11616">意大利</option>
+          <option value="10606">印度</option>
+          <option value="14646">印度尼西亚</option>
+          <option value="10202">英国</option>
+          <option value="14242">越南</option>
+          <option value="15454">智利</option>
+          <option value="19999">其他国家或地区</option>
+        </select>
+        <select name="select" id="sel_province" onChange="selChange($(this),{sel_city:$('#sel_city')})">
+          <option value="111">北京</option>
+          <option value="112">天津</option>
+          <option value="113">河北</option>
+          <option value="114">山西</option>
+          <option value="115">内蒙古</option>
+          <option value="121">辽宁</option>
+          <option value="122">吉林</option>
+          <option value="123">黑龙江</option>
+          <option value="131">上海</option>
+          <option value="132">江苏</option>
+          <option value="133">浙江</option>
+          <option value="134">安徽</option>
+          <option value="135">福建</option>
+          <option value="136">江西</option>
+          <option value="137">山东</option>
+          <option value="141">河南</option>
+          <option value="142">湖北</option>
+          <option value="143">湖南</option>
+          <option value="144" <?php echo ($this->CustomerAvatarAddress["StationProvince"]=='广东' ? 'selected' : '')?>>广东</option>
+          <option value="145">广西</option>
+          <option value="146">海南</option>
+          <option value="150">重庆</option>
+          <option value="151">四川</option>
+          <option value="152">贵州</option>
+          <option value="153">云南</option>
+          <option value="154">西藏</option>
+          <option value="161">陕西</option>
+          <option value="162">甘肃</option>
+          <option value="163">青海</option>
+          <option value="164">宁夏</option>
+          <option value="165">新疆</option>
+          <option value="171">台湾</option>
+          <option value="172">香港</option>
+          <option value="173">澳门</option>
+        </select>
+        <select name="select" id="sel_city" onChange="selChange($(this),{sel_town:$('#sel_town')})">
+          <option value="5">广州市</option>
+          <option value="7" <?php echo ($this->CustomerAvatarAddress["StationCity"]=='深圳市' ? 'selected' : '')?>>深圳市</option>
+          <option value="504">珠海市</option>
+          <option value="507">汕头市</option>
+          <option value="533">韶关市</option>
+          <option value="521">佛山市</option>
+          <option value="509">江门市</option>
+          <option value="516">湛江市</option>
+          <option value="511">茂名市</option>
+          <option value="534">肇庆市</option>
+          <option value="508">惠州市</option>
+          <option value="545">梅州市</option>
+          <option value="529">汕尾市</option>
+          <option value="544">河源市</option>
+          <option value="531">阳江市</option>
+          <option value="512">清远市</option>
+          <option value="510">东莞市</option>
+          <option value="515">中山市</option>
+          <option value="506">潮州市</option>
+          <option value="540">揭阳市</option>
+          <option value="546">云浮市</option>
+          <option value="9905">其他城市</option>
+        </select>
+        <select name="select" id="sel_town">
+          <option value="1440201">福田区</option>
+          <option value="1440202">罗湖区</option>
+          <option value="1440203">南山区</option>
+          <option value="1440204">宝安区</option>
+          <option value="1440205" <?php echo ($this->CustomerAvatarAddress["StationDistrict"]=='龙岗区' ? 'selected' : '')?>>龙岗区</option>
+          <option value="1440206">盐田区</option>
+        </select>
+        <span class="nohint" id="vaild_address_area">请选择省份</span> </p>
+      <p>
+        <label>街道地址：</label>
+        <input type="text" size="60" id="txt_addr_detail" value="<?php echo $this->CustomerAvatarAddress["StationStreets"]." ".$this->CustomerAvatarAddress["StationApartment"]."_".$this->CustomerSelfMobile;?>">
+        <span class="nohint" id="valid_addressdetail">请填写街道地址</span> </p>
+      <p>
+        <label>邮政编码：</label>
+        <input name="" type="text" id="txt_ship_zip" value="<?php echo $this->CustomerAvatarAddress["StationZipCode"];?>">
+        <span class="nohint" id="vaild_shipzip">请填写您的邮编 正确的邮编有助于加快送货速度</span> </p>
+      <p>
+        <label>手机：</label>
+        <input name="" type="text" id="txt_ship_mb" value="<?php echo $this->CustomerAvatarMobile;?>">
+        <label>或者
+          固定电话</label>
+        <input name="" type="text" id="txt_ship_tel">
+        <span class="nohint" id="vaild_tel">请填写手机号码或固定电话 请选填至少一项</span> </p>
+      <p class="address_add_checkbox">
+        <input id="check_default" name="" type="checkbox" value="">
+        <span>设为默认地址</span> </p>
+      <p class="address_add_btn">
+        <button onClick="return saveaddress()">保存</button>
+      </p>
+    </div>
+  </form>
+</div>

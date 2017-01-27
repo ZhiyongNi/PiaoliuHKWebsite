@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<form action="" method="post">
+  仓库中未匹配包裹
+  <?php if ($this->UnmatchedPackageList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">手机号</th>
+      <th scope="col">快递公司</th>
+      <th scope="col">运单号</th>
+      <th scope="col">照片</th>
+      <th scope="col">重量</th>
+      <th scope="col">运费</th>
+      <th scope="col">入库时间</th>
+      <th scope="col">出库时间</th>
+    </tr>
+    <?php foreach ($this->UnmatchedPackageList as $Value): ?>
+    <tr>
+      <th scope="row"><input name="UnmatchedPackageID[]" type="checkbox" id="UnmatchedPackageID[]" value="<?php echo $Value["PackageID"] ?>" /></th>
+      <td><?php echo $Value["PackageTempID"] ?></td>
+      <td><?php echo $Value["PackageOwnerID"] ?></td>
+      <td><?php echo $Value["PackageOwnerMobile"] ?></td>
+      <td><?php echo $Value["PackageExpressCompany"] ?></td>
+      <td><?php echo $Value["PackageExpressTrackNumber"] ?></td>
+      <td><?php echo $Value["PackageSnapshot"] ?></td>
+      <td><?php echo $Value["PackageWeight"] ?></td>
+      <td><?php echo $Value["PackageFare"] ?></td>
+      <td><?php echo $Value["PackageInTime"] ?></td>
+      <td><?php echo $Value["PackageOutTime"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <hr />
+  客户遗失包裹
+  <?php if ($this->LostPackageList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">手机号</th>
+      <th scope="col">快递公司</th>
+      <th scope="col">运单号</th>
+      <th scope="col">照片</th>
+      <th scope="col">重量</th>
+      <th scope="col">运费</th>
+      <th scope="col">入库时间</th>
+      <th scope="col">出库时间</th>
+    </tr>
+    <?php foreach ($this->LostPackageList as $Value): ?>
+    <tr>
+      <td><input name="LostPackageID[]" type="checkbox" id="LostPackageID[]" value="<?php echo $Value["PackageID"] ?>" /></td>
+      <td><?php echo $Value["PackageTempID"] ?></td>
+      <td><?php echo $Value["PackageOwnerID"] ?></td>
+      <td><?php echo $Value["PackageOwnerMobile"] ?></td>
+      <td><?php echo $Value["PackageExpressCompany"] ?></td>
+      <td><?php echo $Value["PackageExpressTrackNumber"] ?></td>
+      <td><?php echo $Value["PackageSnapshot"] ?></td>
+      <td><?php echo $Value["PackageWeight"] ?></td>
+      <td><?php echo $Value["PackageFare"] ?></td>
+      <td><?php echo $Value["PackageInTime"] ?></td>
+      <td><?php echo $Value["PackageOutTime"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  客户预约包裹
+  <?php if ($this->ReservationPackageList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">手机号</th>
+      <th scope="col">快递公司</th>
+      <th scope="col">运单号</th>
+      <th scope="col">照片</th>
+      <th scope="col">重量</th>
+      <th scope="col">运费</th>
+      <th scope="col">入库时间</th>
+      <th scope="col">出库时间</th>
+    </tr>
+    <?php foreach ($this->ReservationPackageList as $Value): ?>
+    <tr>
+      <td><input name="ReservationPackageID[]" type="checkbox" id="ReservationPackageID[]" value="<?php echo $Value["PackageID"] ?>" /></td>
+      <td><?php echo $Value["PackageTempID"] ?></td>
+      <td><?php echo $Value["PackageOwnerID"] ?></td>
+      <td><?php echo $Value["PackageOwnerMobile"] ?></td>
+      <td><?php echo $Value["PackageExpressCompany"] ?></td>
+      <td><?php echo $Value["PackageExpressTrackNumber"] ?></td>
+      <td><?php echo $Value["PackageSnapshot"] ?></td>
+      <td><?php echo $Value["PackageWeight"] ?></td>
+      <td><?php echo $Value["PackageFare"] ?></td>
+      <td><?php echo $Value["PackageInTime"] ?></td>
+      <td><?php echo $Value["PackageOutTime"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <input name="" type="button" value="配对" />
+</form>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="product" content="Metro UI CSS Framework">
+<meta name="description" content="Simple responsive css framework">
+<meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+<!-- Load CSS Libraries -->
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/metro-bootstrap-responsive.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/iconFont.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/css/docs.css');?>" rel="stylesheet">
+<link href="<?php echo $this->baseUrl('/js/prettify/prettify.css');?>" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Coda' rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Jura:400,500,600,300' rel='stylesheet' type='text/css' />
+
+<!-- Load JavaScript Libraries -->
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.widget.min.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/jquery/jquery.mousewheel.js');?>"></script>
+<script src="<?php echo $this->baseUrl('/js/prettify/prettify.js');?>"></script>
+
+<!-- Metro UI CSS JavaScript plugins -->
+<script src="<?php echo $this->baseUrl('/js/metro.min.js');?>"></script>
+<!-- Local JavaScript -->
+<script src="<?php echo $this->baseUrl('/js/docs.js');?>"></script>
+<title>Metro UI CSS : Metro Bootstrap CSS Library</title>
+</head>
+<body class="metro">
+<header class="bg-black" data-load="/template/header"></header>
+<div class="container">
+  <section class="content">
+                	<a name="#31" id="#31"></a>
+					<h2>费用</h2>			
+					<Table class="feetable">
+                    <tr>
+                    <th>港币计价</th>
+                    <th>首重(1KG)</th>
+                    <th>续重(每0.5KG)</th>
+                    <th>1KG以下单件包裹</th>
+                    <th>2KG以下单件包裹</th>
+                    </tr>
+                    <tr>
+                    <td>学校及居住区定点派送</td>
+                    <td>12.5</td>
+                    <td>3.5</td>
+                    <td>11</td>
+                    <td>18</td>
+                    </tr>
+                    <tr>
+                    <td>香港仓库自行取货</td>
+                    <td>12.5</td>
+                    <td>3.5</td>
+                    <td>11</td>
+                    <td>18</td>
+                    </tr>
+                    <tr>
+                    <td>送往指定地铁站</td>
+                    <td>32.5</td>
+                    <td>3.5</td>
+                    <td>31</td>
+                    <td>38</td>
+                    </tr>
+                    </Table>
+                    
+                    <br/>
+                    
+                    <Table class="feetable">
+                    <tr>
+                    <th>人民币计价</th>
+                    <th>首重(1KG)</th>
+                    <th>续重(每0.5KG)</th>
+                    <th>1KG以下单件包裹</th>
+                    <th>2KG以下单件包裹</th>
+                    </tr>
+                    <tr>
+                    <td>学校及居住区定点派送</td>
+                    <td>10</td>
+                    <td>2.8</td>
+                    <td>8.8</td>
+                    <td>14.4</td>
+                    </tr>
+                    <tr>
+                    <td>香港仓库自行取货</td>
+                    <td>10</td>
+                    <td>2.8</td>
+                    <td>8.8</td>
+                    <td>14.4</td>
+                    </tr>
+                    <tr>
+                    <td>送往指定地铁站</td>
+                    <td>26</td>
+                    <td>2.8</td>
+                    <td>24.8</td>
+                    <td>30.4</td>
+                    </tr>
+                    </Table>
+					<br/>
+                    
+                    <h2><font color="red"><strong>快递费用会受快件所占运输空间影响，而不是由实际重量决定。这就是体积重量。</strong></font></h2>
+                    <br/>
+                    <h2><font color="red"><strong>对于实际重量极小而体积重量极大（譬如被子，包装很好的捧花，很轻但包装很大的食物等等），可能会产生高昂的快递费用，下单前请咨询我们，谢谢。</strong></font></h2>
+                    <br/>
+                    <h2>通用运费计算公式：</h2>
+                    <br/>
+                    <p>A) 当需寄递物品实重大于材积时，运费计算方法为：</p> 
+                    <p>　　首重运费＋(重量（公斤)－1)*2*续重运费 </p>
+                    <p>　　例如：4.5KG货品按首重12.5港币、续重3.5港币/0.5KG计算，则运费总额为：12.5＋(4.5-1)*2*3.5=37 (港币) </p>
+                    <br/>
+                    <p>B) 当需寄递物品<strong>实际重量较小而体积较大</strong>，运费需按体积重量标准收取，然后再按上列公式计算运费总额。求体积重量公式如下：</p> 
+                    <p>　　规则物品： 长（cm）×宽(cm)×高(cm)÷6000=重量（KG） </p>
+                    <p>　　不规则物品： 最长（cm）×最宽(cm)×最高(cm) ÷6000=重量（KG）</p>
+                    <br/>
+                    <p><strong>#我们可在深圳收件的时候提供开箱验货服务，费用为5HKD/4RMB每单</strong></p>
+					<br/>
+                    <h2>长时间未通知或未收货的相关仓储费用：</h2>
+                    <p>　　我们支持客户使用包裹集运，客户可以选择在不同时间购买不同产品并要求一起运送。但对于包裹之间间隔太长的情况，我们亦会收取相关的仓储费用。 </p>
+                    
+                    <p>　　客户需在第一个包裹下单之后的六天内通知我们该包裹的单号以及后续包裹的下单情况，否则我们会收取所有包裹4HKD每天每个包裹的仓储费用。 </p>
+                    <p>　　所有包裹可在我们仓库停留共计二十五日，超出则按照4HKD每天每个包裹的仓促费用。 </p>
+                    <br/>
+				</section>
+
+			</div>
+			<!-- end of main -->
+		</div>
+		<!-- end of shell -->			
+</div>
+</body>
+</html>

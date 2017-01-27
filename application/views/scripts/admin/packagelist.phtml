@@ -1,0 +1,39 @@
+<form action="packagelistpreviewform" method="post" id="packagelistpreviewform" target="_new">
+  <p>
+    <label>包裹.未配对</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Unmatched ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.客户丢失</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Lost ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.客户预约</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Reservation ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.待打包</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Waiting ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.待出库</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Checkout ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.在途</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->inTransit ?>" id="SearchPackageType" />
+  </p>
+  <p>
+    <label>包裹.已签收</label>
+    <input type="radio" name="SearchPackageType" value="<?php echo $this->Signed ?>" id="SearchPackageType" />
+  </p>
+  <input name="search" type="submit" id="search" value="查询" />
+</form>
+<?php
+
+
+
+
+
+
+

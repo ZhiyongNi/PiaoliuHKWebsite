@@ -1,0 +1,11 @@
+ {
+  "aaData": [
+  <?php  $count = count($this->CapCreditTable);
+	foreach ($this->CapCreditTable as $Key => $Value): ?>
+{
+     "CapCreditTimeStamp": "<?php echo $Value["CapCreditTimeStamp"] ?>",
+      "CapCreditLedger": "<?php echo $Value["CapCreditLedger"] ?>",
+      "CapCreditRemarks": "<?php echo $Value["CapCreditRemarks"] ?>"
+    }<?php echo ($Key + 1 < $count ? ',' : '');
+	 endforeach; ?>]
+}

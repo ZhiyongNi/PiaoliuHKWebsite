@@ -1,0 +1,14 @@
+﻿
+<h2><?php echo $this->PackageID;?>跟踪状态</h2>
+<div id="track" class="stepper" data-role="stepper" data-steps="<?php echo $this->TrackStatus_Step; ?>" data-start="<?php echo $this->TrackStatus_ThisStep; ?>" > </div>
+<h3 class="text-info"><?php echo $this->PackageExpressCompanyName." ".$this->PackageExpressTrackNumber; ?></h3>
+<h4><?php echo $this->TrackStatus; ?></h4>
+<div class="listview-outlook" data-role="listview">
+  <?php for ($i = count($this->TempTrackInfoData) - 1; $i >= 0; $i --): ?>
+  <a class="list  <?php echo ($i == count($this->TempTrackInfoData) - 1 ? 'active' : '')?>" href="javascript:void(0)">
+  <div class="list-content"> <span class="list-subtitle">
+    <?php $Value = $this->TempTrackInfoData[$i];echo $Value["time"] ?>
+    </span> <span class="list-remark"><?php echo $Value["content"] ?></span> </div>
+  </a>
+  <?php endfor; ?>
+</div>

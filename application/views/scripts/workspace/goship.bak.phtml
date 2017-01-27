@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script language="JavaScript" type="text/javascript" src="/js/jquery-1.10.2.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/goship.js"></script>
+</head>
+
+<body>
+<form action="goshipform" method="post" id="goshipform">
+  <?php if ($this->PackageWaitingList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">手机号</th>
+      <th scope="col">快递公司</th>
+      <th scope="col">运单号</th>
+      <th scope="col">照片</th>
+      <th scope="col">重量</th>
+      <th scope="col">运费</th>
+      <th scope="col">入库时间</th>
+      <th scope="col">出库时间</th>
+      <th scope="col">状态</th>
+    </tr>
+    <?php foreach ($this->PackageWaitingList as $Value): ?>
+    <tr>
+      <td><input name="RelatedPackageID[]" type="checkbox" id="RelatedPackageID[]" value="<?php echo $Value["PackageID"] ?>" /></td>
+      <td><?php echo $Value["PackageID"] ?></td>
+      <td><?php echo $Value["PackageOwnerID"] ?></td>
+      <td><?php echo $Value["PackageOwnerMobile"] ?></td>
+      <td><?php echo $Value["PackageExpressCompany"] ?></td>
+      <td><?php echo $Value["PackageExpressTrackNumber"] ?></td>
+      <td><?php echo $Value["PackageSnapshot"] ?></td>
+      <td><?php echo $Value["PackageWeight"] ?></td>
+      <td><?php echo $Value["PackageFare"] ?></td>
+      <td><?php echo $Value["PackageInTime"] ?></td>
+      <td><?php echo $Value["PackageOutTime"] ?></td>
+      <td><?php echo $Value["PackageStatus"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <?php if ($this->PackageReservationList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">手机号</th>
+      <th scope="col">快递公司</th>
+      <th scope="col">运单号</th>
+      <th scope="col">照片</th>
+      <th scope="col">重量</th>
+      <th scope="col">运费</th>
+      <th scope="col">入库时间</th>
+      <th scope="col">出库时间</th>
+      <th scope="col">状态</th>
+    </tr>
+    <?php foreach ($this->PackageReservationList as $Value): ?>
+    <tr>
+      <td><input name="RelatedPackageID[]" type="checkbox" id="RelatedPackageID[]" value="<?php echo $Value["PackageID"] ?>" /></td>
+      <td><?php echo $Value["PackageID"] ?></td>
+      <td><?php echo $Value["PackageOwnerID"] ?></td>
+      <td><?php echo $Value["PackageOwnerMobile"] ?></td>
+      <td><?php echo $Value["PackageExpressCompany"] ?></td>
+      <td><?php echo $Value["PackageExpressTrackNumber"] ?></td>
+      <td><?php echo $Value["PackageSnapshot"] ?></td>
+      <td><?php echo $Value["PackageWeight"] ?></td>
+      <td><?php echo $Value["PackageFare"] ?></td>
+      <td><?php echo $Value["PackageInTime"] ?></td>
+      <td><?php echo $Value["PackageOutTime"] ?></td>
+      <td><?php echo $Value["PackageStatus"] ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <input type="button" value="打包包裹" onclick="selectPackage()"/>
+  <input type="button" value="重置包裹" />
+  <p>
+    <label>
+      <input type="radio" name="TransitBillMethod" value="0" id="TransitBillMethod" />
+      A.学校及居住区定点派送</label>
+    <br />
+    <label>
+      <input type="radio" name="TransitBillMethod" value="1" id="TransitBillMethod" />
+      B.香港仓库自行取货</label>
+    <br />
+    <label>
+      <input type="radio" name="TransitBillMethod" value="2" id="TransitBillMethod" />
+      C.送往指定地点门</label>
+    <br />
+  </p>
+  <p> 派送日期
+    <input name="TransitBillSignDate" type="text" id="TransitBillSignDate" size="8" value="" />
+  </p>
+  <input type="button" value="确认" onclick="selectMethod()" />
+  <input type="button" value="修改" />
+  <div id="Fare">运费</div>
+  <div id="Fee">服务费</div>
+  <p>=
+    <input name="TransitBillPrice" type="text" value="" readonly="readonly" />
+  </p>
+  <p>
+    <label>
+      <input type="radio" name="TransitBillSettlement" value="0" id="TransitBillSettlement" />
+      A.Alipay在线支付</label>
+    <br />
+    <label>
+      <input type="radio" name="TransitBillSettlement" value="1" id="TransitBillSettlement" />
+      B.货卡付款，到现金/银联借记卡</label>
+    <br />
+  </p>
+  <input name="" type="submit" value="装入漂流瓶" />
+</form>
+</body>
+</html>

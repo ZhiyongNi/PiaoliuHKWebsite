@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<form id="checkouttransitform" name="checkouttransitform" action="checkouttransitform" method="post">
+  等待出库的运单
+  <?php if ($this->TransitBillList): ?>
+  <table width="800" border="1">
+    <tr>
+      <th scope="col">&nbsp;</th>
+      <th scope="col">编号</th>
+      <th scope="col">收货人</th>
+      <th scope="col">包裹编号</th>
+      <th scope="col">包裹数量</th>
+      <th scope="col">运价</th>
+      <th scope="col">运送方式</th>
+      <th scope="col">支付方式</th>
+      <th scope="col">运送时间</th>
+      <th scope="col">签收日期</th>
+      <th scope="col">状态</th>
+      <th scope="col">备注</th>
+    </tr>
+    <?php foreach ($this->TransitBillList as $Value): ?>
+    <tr>
+      <th scope="row"><input name="ShipTransitBillID[]" type="checkbox" id="ShipTransitBillID[]" value="<?php echo $Value["TransitBillID"] ?>" /></th>
+      <td><?php echo $this->escape($Value["TransitBillID"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillOwnerID"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillRelatedPackageIDArray"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillRelatedPackageQuantity"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillPrice"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillMethod"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillSettlement"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillInitializationTime"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillSignDate"]) ?></td>
+      <td><?php echo $this->escape($Value["TransitBillStatus"]) ?></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+  <?php else: ?>
+  <p>There are no books to display.</p>
+  <?php endif; ?>
+  <input name="checkout" type="submit"  value="出库" id="checkout" />
+</form>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<title>Amazon</title>
+<table>
+  <tbody>
+    <tr>
+      <td colspan="2"><font color="#990000">
+        <div id="ajax-address-error"></div>
+        </font>
+        <div id="enterAddressFormDiv"> </div>
+        <table class="enterAddressFormTable">
+          <tbody>
+            <tr height="35">
+              <td class="enterAddressFieldLabel" style="vertical-align: middle; white-space: nowrap;"><span>
+                <label for="enterAddressFullName"><b>姓名</b></label>
+                </span></td>
+              <td style="vertical-align: middle; white-space: nowrap;"><span>
+                <input type="text" name="enterAddressFullName" id="enterAddressFullName" class="enterAddressFormField" size="20" value="<?php echo $this->CustomerName;?>" maxlength="50">
+                </span></td>
+            </tr>
+            <tr height="35">
+              <td class="enterAddressFieldLabel" style="vertical-align: middle; white-space: nowrap;"><span>
+                <label for="enterAddressAddressArea"><b>地区</b></label>
+                </span></td>
+              <td style="vertical-align: middle; white-space: nowrap;"><span>
+                <style type="text/css">
+.dropdown_option{
+background:transparent url('https://images-cn.ssl-images-amazon.com/images/G/28/x-locale/common/buttons/dropdown_bg-noborder._V183808916_.gif') no-repeat top right;border:solid 1px #7f9db9;font-size:12px;padding:4px 25px 2px 7px;margin:0;text-decoration:none;color:black;margin:0;line-height:18px;height:12px;cursor:pointer}
+.dropdown_space{margin-right:14px}
+.focus{outline:solid 1px #b3dbff}
+
+.dropdown_window{margin:0;border:solid 1px #cbe3f7;width:291px;padding:7px 0 15px 15px;background-color:#fff}
+.dropdown_window table.table_list{margin:0;padding:0;width:292px;}
+.dropdown_window table.table_list tr td{margin:0;padding:0;line-height:22px;width:73px;font-size:12px}
+.dropdown_window table.table_list tr td a{text-decoration:none;cursor:pointer}
+Input.enterAddressFormField{border: 1px solid #7F9DB9;height: 22px;}
+.enterAddressFieldLabel {text-align: right;width: 100px;}
+.enterAddressSelectField {vertical-align: middle;}
+</style>
+                <a id="stateTrigger" class="dropdown_option dropdown_space" style="color:black"><?php echo $this->CustomerAvatarAddress["StationProvince"];?></a> <a id="cityTrigger" class="dropdown_option dropdown_space" style="color: black;"><?php echo $this->CustomerAvatarAddress["StationCity"];?></a> <a id="districtTrigger" class="dropdown_option" style="color: black; display: inline;"><?php echo $this->CustomerAvatarAddress["StationDistrict"];?></a> </span></td>
+            </tr>
+            <tr height="35">
+              <td class="enterAddressFieldLabel" style="vertical-align: middle; white-space: nowrap;"><span>
+                <label for="enterAddressAddressLine1"><b>街道地址</b></label>
+                </span></td>
+              <td style="vertical-align: middle; white-space: nowrap;"><span>
+                <input type="text" name="enterAddressAddressLine1" id="enterAddressAddressLine1" class="enterAddressFormField" size="60" value="<?php echo $this->CustomerAvatarAddress["StationStreets"]." ".$this->CustomerAvatarAddress["StationApartment"]."_".$this->CustomerSelfMobile;?>" maxlength="60">
+                </span></td>
+            </tr>
+            <tr height="35">
+              <td class="enterAddressFieldLabel" style="vertical-align: middle; white-space: nowrap;"><span>
+                <label for="enterAddressPostalCode"><b>邮政编码</b></label>
+                </span></td>
+              <td style="vertical-align: middle; white-space: nowrap;"><span>
+                <input type="text" name="enterAddressPostalCode" id="enterAddressPostalCode" class="enterAddressFormField" size="20" value="<?php echo $this->CustomerAvatarAddress["StationZipCode"];?>" maxlength="20">
+                </span></td>
+            </tr>
+            <tr height="35">
+              <td class="enterAddressFieldLabel" style="vertical-align: middle; white-space: nowrap;"><span>
+                <label for="enterAddressPhoneNumber"><b>联系电话</b></label>
+                </span></td>
+              <td style="vertical-align: middle; white-space: nowrap;"><span>
+                <input type="text" name="enterAddressPhoneNumber" id="enterAddressPhoneNumber" class="enterAddressFormField" size="20" value="<?php echo $this->CustomerAvatarMobile;?>" maxlength="20">
+                </span> <span id="learnMoreLink" class="tiny"><a href="#" id="learnMorePopoverLink"><b>了解更多</b></a></span></td>
+            </tr>
+          </tbody>
+        </table>
+    </tr>
+    <tr>
+      <td><table border="0" width="20%">
+          <tbody>
+            <tr>
+              <td width="10%">&nbsp;
+                <input type="image" src="https://images-cn.ssl-images-amazon.com/images/G/28/x-locale/common/buttons/save_and_continue_white._V162942409_.gif" width="70" alt="保存并继续" value="保存并继续" name="editAddress" height="22" border="0" style="margin-left: 110px;"></td>
+            </tr>
+          </tbody>
+        </table></td>
+      <td>
+    </tr>
+  </tbody>
+</table>

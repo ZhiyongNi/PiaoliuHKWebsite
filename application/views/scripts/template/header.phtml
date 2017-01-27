@@ -1,0 +1,121 @@
+<script>
+				/**
+ * Created by Seven on 2014/8/18.
+ */
+
+function LoginDialog(){
+	$.Dialog({
+                                overlay: true,
+                                shadow: true,
+                                flat: true,
+                                draggable: true,
+                                icon: '<img src="images/excel2013icon.png">',
+                                title: 'Flat window',
+                                content: '',
+                                padding: 10,
+                                onShow: function(_dialog){
+                                    var content = '<form class="user-input" id="loginform" name="loginform" method="post" action="/log/loginform">' +
+                                            '<label>Login</label>' +
+                                            '<div class="input-control text"><input type="text" name="UserName"><button class="btn-clear"></button></div>' +
+                                            '<label>Password</label>'+
+                                            '<div class="input-control password"><input type="password" name="Password"><button class="btn-reveal"></button></div>' +
+                                            '<div class="input-control checkbox"><label><input type="checkbox" name="c1" checked/><span class="check"></span>记住我免登录</label></div>'+
+                                            '<div class="form-actions">' +
+                                            '<button class="button primary">登录...</button>&nbsp;'+
+                                            '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
+                                            '</div>'+
+                                            '</form>';
+
+                                    $.Dialog.title("User login");
+                                    $.Dialog.content(content);
+                                }
+                            });
+
+
+}
+function RegisterDialog(){
+	$.Dialog({
+                                overlay: true,
+                                shadow: true,
+                                flat: true,
+                                draggable: true,
+                                icon: '<img src="images/excel2013icon.png">',
+                                title: 'Flat window',
+                                content: '',
+                                padding: 10,
+                                onShow: function(_dialog){
+                                    var content = '<form class="user-input" id="loginform" name="loginform" method="post" action="/log/register">' +
+                                            '<label>用户名</label>' +
+                                            '<div class="input-control text"><input type="text" name="UserName"><button class="btn-clear"></button></div>' +
+                                            '<label>登陆密码</label>'+
+                                            '<div class="input-control password"><input type="password" name="Password"><button class="btn-reveal"></button></div>' +
+											'<label>重复密码</label>'+
+                                            '<div class="input-control password"><input type="password" name="confirmPassword"><button class="btn-reveal"></button></div>' +  
+											'<label>真实姓名</label>' +
+                                            '<div class="input-control text"><input type="text" name="CustomerName"><button class="btn-clear"></button></div>' +  
+											'<label>手机号码</label>' +
+                                            '<div class="input-control text"><input type="text" name="CustomerSelfMobile"><button class="btn-clear"></button></div>' +  
+											'<label>电子邮箱</label>' +
+                                            '<div class="input-control text"><input type="text" name="CustomerMail"><button class="btn-clear"></button></div>' +
+											'<label>学校</label>' +
+                                            '<div class="input-control text"><input type="text" name="UserName"><button class="btn-clear"></button></div>' +
+                                            '<div class="input-control checkbox"><label><input type="checkbox" name="c1" checked/><span class="check"></span>记住我免登录</label></div>'+
+                                            '<div class="form-actions">' +
+                                            '<button class="button primary">登录...</button>&nbsp;'+
+                                            '<button class="button" type="button" onclick="$.Dialog.close()">Cancel</button> '+
+                                            '</div>'+
+                                            '</form>';
+
+                                    $.Dialog.title("User login");
+                                    $.Dialog.content(content);
+                                }
+                            });
+
+
+}
+</script>
+<div class="navigation-bar dark">
+  <div class="navigation-bar-content container"> <a href="/" class="element"><span class="icon-grid-view"></span> PiaoLiu HK <sup>2.0</sup></a> <span class="element-divider"></span> <a class="element1 pull-menu" href="#"></a>
+    <ul class="element-menu">
+      <li> <a href="<?php echo $this->baseUrl('/index/aboutus');?>">联络我们</a> </li>
+      <li> <a class="dropdown-toggle"  href="#">活动与消息</a>
+        <ul class="dropdown-menu dark" data-role="dropdown">
+          <li><a href="http://blog.metroui.net">最新活动</a></li>
+          <li><a href="http://forum.metroui.net">消息</a></li>
+        </ul>
+      </li>
+      <li> <a class="dropdown-toggle"  href="#">关于转运</a>
+        <ul class="dropdown-menu dark" data-role="dropdown">
+          <li><a href="<?php echo $this->baseUrl('/index/basicprocess');?>">转运流程</a></li>
+          <li><a href="<?php echo $this->baseUrl('/index/generaladdress');?>">收货地址</a></li>
+          <li><a href="<?php echo $this->baseUrl('/index/calculatefee');?>">计价方式</a></li>
+          <li class="divider"></li>
+          <li><a href="<?php echo $this->baseUrl('/index/schedule');?>">时效性</a></li>
+          <li><a href="<?php echo $this->baseUrl('/index/contrabandlist');?>">禁运品清单</a></li>
+          <li class="divider"></li>
+          <li><a href="<?php echo $this->baseUrl('/index/guide');?>">FAQ</a></li>
+        </ul>
+      </li>
+      <li> <a href="#">会员制度</a> </li>
+    </ul>
+    <ul class="element-menu place-right">
+       <li> <a class="dropdown-toggle" href="#"><span class="icon-cog"></span></a>
+        <ul class="dropdown-menu dark" data-role="dropdown">
+          <li><a href="http://blog.metroui.net">转运流程</a></li>
+          <li><a href="http://forum.metroui.net">收货地址</a></li>
+          <li class="divider"></li>
+          <li><a href="https://github.com/olton/Metro-UI-CSS">时效性</a></li>          
+        </ul>
+      </li>      
+    </ul>
+    <span class="element-divider place-right"></span>
+   
+    <a class="element brand place-right" href="javascript:void(0)" onclick="LoginDialog()">登录</span></a>
+    <a class="element brand place-right" href="javascript:void(0)" onclick="RegisterDialog()">注册</span></a>
+        
+    <span class="element-divider place-right"></span>
+    <button class="element image-button image-left place-right" onclick="LoginDialog()" >
+          <?php echo $this->CustomerName;?> <img src="images/me.jpg"/>
+    </button>   
+  </div>
+</div>
